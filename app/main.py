@@ -8,7 +8,7 @@ from app.routes import (hotels, rooms, bookings, auth)
 from app.db import init_database
 
 @asynccontextmanager
-async def lifespan():
+async def lifespan(app: FastAPI):
     '''
     init db
     '''

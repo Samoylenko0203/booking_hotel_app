@@ -23,7 +23,8 @@ def create_hotel(hotel: Annotated[
                         schema_hotel.HotelCreate,
                         request_examples.example_create_hotel
                 ],
-                session: Session = Depends(get_session)):
+                session: Session = Depends(get_session),
+                current_user: User = Depends(get_current_user)):
     """
     Создать отель. Требует авторизации
     """
