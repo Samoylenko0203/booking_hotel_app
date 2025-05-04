@@ -1,16 +1,22 @@
+"""
+App config
+"""
 from fastapi import FastAPI
-from contextlib import asynccontextmanager  # Uncomment if you need to create tables on app start >>>
+from contextlib import asynccontextmanager
 from app.routes import (hotels, rooms, bookings, auth)
 from app.db import init_database
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-   init_database()
-   yield                                   # <<< Uncomment if you need to create tables on app start
+    '''
+    init db
+    '''
+    init_database()
+    yield
 
 
 app = FastAPI(
-    lifespan=lifespan,  # Uncomment if you need to create tables on app start
+    lifespan=lifespan,
     title="Система управления бронированиями в отеле",
     description="Система управления бронированиями в отеле на фреймворке FastAPI",
     version="0.0.1",
