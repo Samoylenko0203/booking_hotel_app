@@ -1,13 +1,7 @@
-"""
-Env config
-"""
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    '''
-    settings env
-    '''
     model_config = SettingsConfigDict(env_file=".env")
     db_username: str
     db_password: str
