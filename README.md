@@ -112,10 +112,3 @@ score = (price_weight * нормализованная_цена) +
         (distance_weight * нормализованное_расстояние)
 ```
 3) Отели сортируются по убыванию score.
-
-```
-
-В Postman выбираем Headers -> KEY Authorization -> Value:
-```
-Bearer <Тут указать токен>
-```
