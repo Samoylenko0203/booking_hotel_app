@@ -1,0 +1,657 @@
+{
+	"info": {
+		"_postman_id": "f60c48d6-4fd1-4406-8733-90a83e52335b",
+		"name": "Hotel Booking App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44660531"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user@hotel.com\",\r\n    \"password\": \"qwerty\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:81/v1/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user@hotel.com\",\r\n    \"password\": \"qwerty\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:81/v1/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hotels",
+			"item": [
+				{
+					"name": "Get hotels",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGhvdGVsLmNvbSIsImV4cCI6MTc0NjM4MzE3NH0.Cq2B5tetgim4g3i1_7Qa0_zmrqFhYzDy0s1E17U0Vts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:81/v1/hotels",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"v1",
+								"hotels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "READ hotel by  id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGhvdGVsLmNvbSIsImV4cCI6MTc0NjM4MzE3NH0.Cq2B5tetgim4g3i1_7Qa0_zmrqFhYzDy0s1E17U0Vts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:81/v1/hotels/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"v1",
+								"hotels",
+								":id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE hotel by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGhvdGVsLmNvbSIsImV4cCI6MTc0NjM4MzE3NH0.Cq2B5tetgim4g3i1_7Qa0_zmrqFhYzDy0s1E17U0Vts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:81/v1/hotels/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"v1",
+								"hotels",
+								":id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE hotel by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGhvdGVsLmNvbSIsImV4cCI6MTc0NjM4MzE3NH0.Cq2B5tetgim4g3i1_7Qa0_zmrqFhYzDy0s1E17U0Vts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Супер Отель 2\",\r\n    \"location\": \"Москва, ул. Красная, д. 1\",\r\n    \"rating\": 4.3,\r\n    \"price_per_night\": 9000,\r\n    \"distance_from_center\": 0.6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:81/v1/hotels/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"v1",
+								"hotels",
+								":id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE hotel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGhvdGVsLmNvbSIsImV4cCI6MTc0NjM4MzE3NH0.Cq2B5tetgim4g3i1_7Qa0_zmrqFhYzDy0s1E17U0Vts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Супер Отель 2\",\r\n    \"location\": \"Москва, ул. Зеленая, д. 1\",\r\n    \"rating\": 4.3,\r\n    \"price_per_night\": 9000,\r\n    \"distance_from_center\": 0.6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:81/v1/hotels",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"v1",
+								"hotels"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rooms",
+			"item": [
+				{
+					"name": "READ room by  id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGhvdGVsLmNvbSIsImV4cCI6MTc0NjM4MzE3NH0.Cq2B5tetgim4g3i1_7Qa0_zmrqFhYzDy0s1E17U0Vts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:81/v1/rooms/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"v1",
+								"rooms",
+								":id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE room by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGhvdGVsLmNvbSIsImV4cCI6MTc0NjM4MzE3NH0.Cq2B5tetgim4g3i1_7Qa0_zmrqFhYzDy0s1E17U0Vts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:81/v1/rooms/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"v1",
+								"rooms",
+								":id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE room by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGhvdGVsLmNvbSIsImV4cCI6MTc0NjM4MzE3NH0.Cq2B5tetgim4g3i1_7Qa0_zmrqFhYzDy0s1E17U0Vts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"capacity\": 1,\r\n    \"price_per_night\": 2,\r\n    \"hotel\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:81/v1/rooms/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"v1",
+								"rooms",
+								":id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE room",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGhvdGVsLmNvbSIsImV4cCI6MTc0NjM4MzE3NH0.Cq2B5tetgim4g3i1_7Qa0_zmrqFhYzDy0s1E17U0Vts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"capacity\": 1,\r\n    \"price_per_night\": 1,\r\n    \"hotel\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:81/v1/rooms",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"v1",
+								"rooms"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bookings",
+			"item": [
+				{
+					"name": "READ booking by  id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGhvdGVsLmNvbSIsImV4cCI6MTc0NjM4MzE3NH0.Cq2B5tetgim4g3i1_7Qa0_zmrqFhYzDy0s1E17U0Vts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:81/v1/bookings/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"v1",
+								"bookings",
+								":id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE booking by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGhvdGVsLmNvbSIsImV4cCI6MTc0NjM4MzE3NH0.Cq2B5tetgim4g3i1_7Qa0_zmrqFhYzDy0s1E17U0Vts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:81/v1/bookings/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"v1",
+								"bookings",
+								":id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE booking by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGhvdGVsLmNvbSIsImV4cCI6MTc0NjM4MzE3NH0.Cq2B5tetgim4g3i1_7Qa0_zmrqFhYzDy0s1E17U0Vts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"check_in\": \"2025-05-04\",\r\n    \"check_out\": \"2025-05-07\",\r\n    \"user_id\": 0,\r\n    \"room_id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:81/v1/bookings/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"v1",
+								"bookings",
+								":id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE booking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGhvdGVsLmNvbSIsImV4cCI6MTc0NjM4MzE3NH0.Cq2B5tetgim4g3i1_7Qa0_zmrqFhYzDy0s1E17U0Vts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"check_in\": \"2025-05-04\",\r\n  \"check_out\": \"2025-05-04\",\r\n  \"user_id\": 0,\r\n  \"room_id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:81/v1/bookings",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"v1",
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
