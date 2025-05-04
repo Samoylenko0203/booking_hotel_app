@@ -1,3 +1,6 @@
+"""
+Routes for bookings: CRUD
+"""
 from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session, select
 from app.db import get_session

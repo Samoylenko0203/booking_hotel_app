@@ -1,7 +1,13 @@
+'''
+Settings class
+'''
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    '''
+    class: Settings
+    '''
     model_config = SettingsConfigDict(env_file=".env")
     db_username: str
     db_password: str

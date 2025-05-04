@@ -1,9 +1,12 @@
+"""
+Routes for hotels: CRUD
+"""
+from typing import Annotated, List
 from fastapi import APIRouter, status, Depends, HTTPException
 from sqlmodel import Session, select
 from app.db import get_session
 from ..api_docs import request_examples
 from ..schemas import booking as schema_hotel
-from typing import Annotated, List
 from ..auth.auth_handler import (
     get_current_user
 )
@@ -20,8 +23,7 @@ def create_hotel(hotel: Annotated[
                         schema_hotel.HotelCreate,
                         request_examples.example_create_hotel
                 ],
-                session: Session = Depends(get_session),
-                current_user: User = Depends(get_current_user)):
+                session: Session = Depends(get_session)):
     """
     Создать отель. Требует авторизации
     """
@@ -49,7 +51,7 @@ def read_hotels(session: Session = Depends(get_session)):
     if hotels is None or len(hotels) == 0:
         raise HTTPException(
             status_code=status.HTTP_204_NO_CONTENT,
-            detail=f"The hotel list is empty."
+            detail="The hotel list is empty."
         )
     return hotels
 
@@ -63,12 +65,13 @@ def read_hotel_by_id(hotel_id: int, session: Session = Depends(get_session)):
     if hotel is None:
         raise HTTPException(
             status_code=status.HTTP_204_NO_CONTENT,
-            detail=f"The hotel list is empty."
+            detail="The hotel list is empty."
         )
     return hotel
 
 @router.patch("/{hotel_id}", status_code=status.HTTP_200_OK, response_model=schema_hotel.HotelRead)
-def update_hotel_by_id(hotel_id: int, data_for_update: dict, session: Session = Depends(get_session)):
+def update_hotel_by_id(hotel_id: int, data_for_update: dict, 
+                       session: Session = Depends(get_session)):
     """
     Обновить отель по ID
     """
@@ -124,7 +127,7 @@ def get_hotel_recommendations(
     if hotels is None or len(hotels) == 0:
         raise HTTPException(
             status_code=status.HTTP_204_NO_CONTENT,
-            detail=f"The hotel list is empty."
+            detail="The hotel list is empty."
         )
 
     max_price = max(hotel.price_per_night for hotel in hotels)

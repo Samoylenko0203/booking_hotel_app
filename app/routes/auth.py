@@ -1,6 +1,9 @@
+'''
+Routes for auth: login & register
+'''
+from datetime import timedelta
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session, select
-from datetime import timedelta
 from app.db import get_session
 from ..schemas.booking import UserCredentials
 from ..auth.auth_handler import (
@@ -17,6 +20,9 @@ def login_user(
         credentials: UserCredentials,
         session: Session = Depends(get_session)
 ):
+    '''
+    login route
+    '''
     user = session.exec(
         select(User).where(User.email == credentials.email)
     ).first()
@@ -36,7 +42,9 @@ def login_user(
 
 @router.post("/register")
 def register_user(credentials: UserCredentials, session: Session = Depends(get_session)):
-    # Хэшируем пароль перед сохранением
+    '''
+    register route
+    '''
     hashed_password = pwd_context.hash(credentials.password)
     new_user = User(
         email=credentials.email,

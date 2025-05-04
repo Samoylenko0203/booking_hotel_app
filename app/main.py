@@ -1,13 +1,14 @@
 """
 App config
 """
-from fastapi import FastAPI
+
 from contextlib import asynccontextmanager
+from fastapi import FastAPI
 from app.routes import (hotels, rooms, bookings, auth)
 from app.db import init_database
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan():
     '''
     init db
     '''
